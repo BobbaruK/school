@@ -4,7 +4,8 @@ import { Navbar } from "@/components/navbar";
 const Header = () => {
   return (
     <div className="container flex items-center justify-start py-4">
-      <Navbar />
+      {/* <Navbar /> */}
+      Header
     </div>
   );
 };

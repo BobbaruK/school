@@ -13,7 +13,7 @@ export default async function Home() {
         </h1>
         {!user && (
           <div>
-            <LoginButton mode="modal" asChild>
+            <LoginButton asChild>
               <Button variant={"secondary"} size={"lg"}>
                 Sign in
               </Button>

@@ -24,7 +24,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${inter.className} min-h-dvh`}>
         <SessionProvider session={session}>
           <ThemeProvider
             attribute="class"
@@ -32,13 +32,7 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <div className="grid min-h-[100vh] grid-rows-siteGrid gap-10">
-              <Header />
-              <main>{children}</main>
-              <footer>
-                <div className="container">footer</div>
-              </footer>
-            </div>
+            {children}
             <Toaster />
           </ThemeProvider>
         </SessionProvider>

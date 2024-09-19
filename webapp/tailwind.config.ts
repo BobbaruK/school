@@ -72,6 +72,9 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      gridTemplateColumns: {
+        "admin-layout": "280px 1fr",
+      },
       gridTemplateRows: {
         siteGrid: "auto 1fr auto",
       },
