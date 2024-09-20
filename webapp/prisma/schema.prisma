@@ -13,6 +13,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Authoization and authentication related tables
 enum UserRole {
   ADMIN
   USER
@@ -86,4 +87,29 @@ model TwoFactorConfirmation {
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId])
+}
+
+// Other
+
+enum Subject {
+  Mathematics
+  English
+  Arabic
+  History
+  Geography
+}
+
+model Teacher {
+  id              String    @id @default(cuid())
+  createdAt       DateTime  @default(now())
+  firstName       String
+  lastName        String
+  email           String    @unique
+  avatar          String?
+  subject         Subject   @default(English)
+  dateOfBirth     DateTime?
+  numberOfClasses Int
+  reviewScore     Float
+
+  @@index([id, email])
 }

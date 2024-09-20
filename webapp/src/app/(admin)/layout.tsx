@@ -9,8 +9,8 @@ interface Props {
 const AdminLayout = ({ children }: Props) => {
   return (
     <>
-      <div className="grid-cols-admin-layout grid min-h-dvh">
-        <div className="flex flex-col items-center gap-10 p-4 pb-8 pt-10 shadow-md">
+      <div className="grid min-h-dvh grid-cols-admin-layout">
+        <div className="flex flex-col items-center gap-10 border-e border-secondary p-4 pb-8 pt-10">
           <svg
             width="168"
             height="41"
@@ -18,7 +18,7 @@ const AdminLayout = ({ children }: Props) => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <g clip-path="url(#clip0_1_1894)">
+            <g clipPath="url(#clip0_1_1894)">
               <path
                 d="M49.2775 28.9524H61.2295V25.3524H53.5255V11.7924H49.2775V28.9524Z"
                 fill="#344054"

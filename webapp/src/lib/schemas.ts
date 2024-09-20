@@ -6,6 +6,7 @@ import {
   userRoles,
 } from "@/lib/constants";
 import { z } from "zod";
+import { teacherSubjects } from "./constants/teacher-subjects";
 
 const passwordRefine = (password: string, ctx: z.RefinementCtx) => {
   const containsUppercase = (ch: string) => /[A-Z]/.test(ch);
@@ -145,3 +146,33 @@ export const SettingsSchema = z
       path: ["password"],
     },
   );
+
+export const AddTeacherSchema = z.object({
+  firstName: z
+    .string()
+    .min(MIN_USERNAME, {
+      message: `First Name must be ${MIN_USERNAME} or more characters long`,
+    })
+    .max(MAX_USERNAME, {
+      message: `First Name must be ${MAX_USERNAME} or fewer characters long`,
+    }),
+  lastName: z
+    .string()
+    .min(MIN_USERNAME, {
+      message: `Last Name must be ${MIN_USERNAME} or more characters long`,
+    })
+    .max(MAX_USERNAME, {
+      message: `Last Name must be ${MAX_USERNAME} or fewer characters long`,
+    }),
+  email: z.string().email({ message: "Invalid email address" }),
+  avatar: z.optional(
+    z.string().startsWith("https://", { message: "Must provide secure URL" }),
+  ),
+  dateOfBirth: z
+    .date({
+      // required_error: "Please select a date and time",
+      invalid_type_error: "That's not a date!",
+    })
+    .optional(),
+  subject: z.enum(teacherSubjects()),
+});
