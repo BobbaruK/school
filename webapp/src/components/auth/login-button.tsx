@@ -1,7 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import React, { ReactNode } from "react";
 import {
   Dialog,
   DialogContent,
@@ -10,6 +8,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { useRouter } from "next/navigation";
+import { ReactNode } from "react";
 import { LoginForm } from "./login-form";
 
 interface Props {

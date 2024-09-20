@@ -12,7 +12,7 @@ import {
   MdKeyboardDoubleArrowRight,
 } from "react-icons/md";
 
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 
 /**
  * {@linkcode PAGINATION_ARR}

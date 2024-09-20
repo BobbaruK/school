@@ -22,7 +22,7 @@ export const columns: ColumnDef<Teacher>[] = [
       return (
         <Button
           variant="ghost"
-          className="flex gap-2"
+          className="flex gap-2 shadow-none"
           onClick={() => column.toggleSorting()}
         >
           Name

@@ -2,14 +2,14 @@ import { EditTeacher } from "@/app/(admin)/teachers/editTeacher";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { RiEdit2Line } from "react-icons/ri";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "./ui/sheet";
+} from "@/components/ui/sheet";
 
 interface Props {
   id: string;

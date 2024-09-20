@@ -7,7 +7,7 @@ import { useTheme } from "next-themes";
 import { useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { MdOutlineLogout } from "react-icons/md";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 
 export const AdminUserButton = () => {
   const user = useCurrentUser();

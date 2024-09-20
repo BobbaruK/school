@@ -13,14 +13,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useCurrentUser } from "@/hooks/use-current-user";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 import { useState } from "react";
 import { FaUser } from "react-icons/fa";
-import { IoExitOutline } from "react-icons/io5";
-import { LogoutButton } from "./logout-button";
-import Link from "next/link";
-import { IoSettingsOutline } from "react-icons/io5";
-import { LoginButton } from "./login-button";
 import { IoIosLogIn } from "react-icons/io";
+import { IoExitOutline, IoSettingsOutline } from "react-icons/io5";
+import { LoginButton } from "./login-button";
+import { LogoutButton } from "./logout-button";
 
 export const UserButton = () => {
   const user = useCurrentUser();

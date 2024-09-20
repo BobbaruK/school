@@ -4,14 +4,14 @@ import { AddTeacher } from "@/app/(admin)/teachers/addTeacher";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "./ui/sheet";
+} from "@/components/ui/sheet";
 
 export const CustomAddTeacherSheet = () => {
   const [open, setOpen] = useState(false);

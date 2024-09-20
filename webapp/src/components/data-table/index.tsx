@@ -23,15 +23,15 @@ import {
 } from "@tanstack/react-table";
 import { DataTablePagination, PAGINATION_DEFAULT } from "./pagination";
 import { ReactNode, useRef, useState } from "react";
-import { Input } from "../ui/input";
+import { Input } from "@/components/ui/input";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
-import { Button } from "../ui/button";
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -157,10 +157,7 @@ export function DataTable<TData, TValue>({
                 <TableRow key={headerGroup.id}>
                   {headerGroup.headers.map((header) => {
                     return (
-                      <TableHead
-                        key={header.id}
-                        className="bg-slate-100"
-                      >
+                      <TableHead key={header.id} className="bg-accent">
                         {header.isPlaceholder
                           ? null
                           : flexRender(

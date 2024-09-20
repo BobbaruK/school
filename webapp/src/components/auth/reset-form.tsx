@@ -1,7 +1,6 @@
 "use client";
 
 import { reset } from "@/actions";
-import { CardWrapper } from "@/components/auth/card-wrapper";
 import { FormError } from "@/components/auth/form-error";
 import { FormSuccess } from "@/components/auth/form-success";
 import { Button } from "@/components/ui/button";
@@ -18,9 +17,9 @@ import { ResetSchema } from "@/lib/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
-import z from "zod";
 import { FaKey } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import z from "zod";
 
 export const ResetForm = () => {
   const [isPending, startTransition] = useTransition();

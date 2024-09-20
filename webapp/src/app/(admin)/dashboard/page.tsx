@@ -178,7 +178,7 @@ const AdminDashboardPage = async () => {
               <h2 className="text-[18px] font-semibold">Top 5 Students</h2>
               <div className="overflow-hidden rounded-md border border-secondary">
                 <Table>
-                  <TableHeader className="bg-slate-100">
+                  <TableHeader className="bg-accent">
                     <TableRow>
                       <TableHead>Student</TableHead>
                       <TableHead>Grade</TableHead>

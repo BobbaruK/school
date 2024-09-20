@@ -1,8 +1,8 @@
 "use client";
 
 import { logout } from "@/actions/logout";
-import { ReactNode } from "react";
 import { signOut } from "next-auth/react";
+import { ReactNode } from "react";
 
 interface Props {
   children?: ReactNode;
