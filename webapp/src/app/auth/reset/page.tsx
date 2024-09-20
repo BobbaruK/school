@@ -2,11 +2,7 @@ import { ResetForm } from "@/components/auth/reset-form";
 import React from "react";
 
 const ResetPage = () => {
-  return (
-    <div className="container grid h-full place-items-center">
-      <ResetForm />
-    </div>
-  );
+  return <ResetForm />;
 };
 
 export default ResetPage;

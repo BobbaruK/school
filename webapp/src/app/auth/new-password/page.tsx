@@ -8,11 +8,7 @@ interface Props {
 }
 
 const NewPasswordPage = ({ searchParams: { token } }: Props) => {
-  return (
-    <div className="container grid h-full place-items-center">
-      <NewPasswordForm searchParamToken={token} />
-    </div>
-  );
+  return <NewPasswordForm searchParamToken={token} />;
 };
 
 export default NewPasswordPage;

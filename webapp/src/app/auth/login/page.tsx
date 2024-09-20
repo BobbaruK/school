@@ -8,11 +8,7 @@ interface Props {
 }
 
 const LoginPage = ({ searchParams: { error, callbackUrl } }: Props) => {
-  return (
-    <div className="container grid h-full place-items-center">
-      <LoginForm searchParamError={error} callbackUrl={callbackUrl} />
-    </div>
-  );
+  return <LoginForm searchParamError={error} callbackUrl={callbackUrl} />;
 };
 
 export default LoginPage;

@@ -34,7 +34,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { teacherSubjects } from "@/lib/constants/teacher-subjects";
-import { AddTeacherSchema } from "@/lib/schemas";
+import { TeacherSchema } from "@/lib/schemas";
 import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Teacher } from "@prisma/client";
@@ -59,8 +59,8 @@ export const EditTeacher = ({ teacherId, closeSheet }: Props) => {
   const [data, setData] = useState<Teacher | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  const form = useForm<z.infer<typeof AddTeacherSchema>>({
-    resolver: zodResolver(AddTeacherSchema),
+  const form = useForm<z.infer<typeof TeacherSchema>>({
+    resolver: zodResolver(TeacherSchema),
     defaultValues: {
       firstName: data?.firstName || undefined,
       lastName: data?.lastName || undefined,
@@ -92,7 +92,7 @@ export const EditTeacher = ({ teacherId, closeSheet }: Props) => {
     return () => {};
   }, [teacherId, setData]);
 
-  const onSubmit = (values: z.infer<typeof AddTeacherSchema>) => {
+  const onSubmit = (values: z.infer<typeof TeacherSchema>) => {
     setSuccess(undefined);
     setError(undefined);
 

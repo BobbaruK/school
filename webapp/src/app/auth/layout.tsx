@@ -5,7 +5,11 @@ interface Props {
 }
 
 const AuthLayout = ({ children }: Props) => {
-  return <>{children}</>;
+  return (
+    <div className="container grid min-h-dvh place-items-center">
+      {children}
+    </div>
+  );
 };
 
 export default AuthLayout;

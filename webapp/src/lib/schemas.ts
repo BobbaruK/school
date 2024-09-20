@@ -147,7 +147,7 @@ export const SettingsSchema = z
     },
   );
 
-export const AddTeacherSchema = z.object({
+export const TeacherSchema = z.object({
   firstName: z
     .string()
     .min(MIN_USERNAME, {
@@ -165,9 +165,17 @@ export const AddTeacherSchema = z.object({
       message: `Last Name must be ${MAX_USERNAME} or fewer characters long`,
     }),
   email: z.string().email({ message: "Invalid email address" }),
-  avatar: z.optional(
-    z.string().startsWith("https://", { message: "Must provide secure URL" }),
-  ),
+  avatar: z
+    .union([
+      z.string().length(0),
+      z.string().startsWith("https://", { message: "Must provide secure URL" }),
+    ])
+    .optional()
+    .transform((e) => (e === "" ? undefined : e)),
+
+  // z.optional(
+  //   z.string().startsWith("https://", { message: "Must provide secure URL" }),
+  // ),
   dateOfBirth: z
     .date({
       // required_error: "Please select a date and time",

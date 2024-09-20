@@ -30,7 +30,7 @@ import {
 } from "@/components/ui/select";
 import { SheetClose } from "@/components/ui/sheet";
 import { teacherSubjects } from "@/lib/constants/teacher-subjects";
-import { AddTeacherSchema } from "@/lib/schemas";
+import { TeacherSchema } from "@/lib/schemas";
 import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { format } from "date-fns";
@@ -48,8 +48,8 @@ export const AddTeacher = ({ closeSheet }: Props) => {
   const [error, setError] = useState<string | undefined>();
   const [isPending, startTransition] = useTransition();
 
-  const form = useForm<z.infer<typeof AddTeacherSchema>>({
-    resolver: zodResolver(AddTeacherSchema),
+  const form = useForm<z.infer<typeof TeacherSchema>>({
+    resolver: zodResolver(TeacherSchema),
     defaultValues: {
       firstName: "",
       lastName: "",
@@ -59,7 +59,7 @@ export const AddTeacher = ({ closeSheet }: Props) => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof AddTeacherSchema>) => {
+  const onSubmit = (values: z.infer<typeof TeacherSchema>) => {
     setSuccess(undefined);
     setError(undefined);
 

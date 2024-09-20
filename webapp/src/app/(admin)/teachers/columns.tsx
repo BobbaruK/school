@@ -170,33 +170,12 @@ export const columns: ColumnDef<Teacher>[] = [
     cell: ({ row }) => {
       return (
         <div className="flex w-full items-center justify-center gap-4">
-          {/* <Sheet>
-            <SheetTrigger asChild>
-              <Button
-                variant={"default"}
-                size={"sm"}
-                className="flex h-auto items-center gap-2 px-2 py-1"
-              >
-                <RiEdit2Line /> Edit
-              </Button>
-            </SheetTrigger>
-            <SheetContent
-              className={cn("flex min-w-[483px] max-w-none flex-col p-8")}
-            >
-              <SheetHeader className="mb-12">
-                <SheetTitle className="text-[20px] font-medium">
-                  Edit Teacher
-                </SheetTitle>
-              </SheetHeader>
-              <EditTeacher teacherId={row.original.id} />
-            </SheetContent>
-          </Sheet> */}
           <CustomEditTeacherSheet id={row.original.id} />
 
           <Button
             variant={"default"}
             size={"sm"}
-            className="flex h-auto items-center gap-2 px-2 py-1"
+            className="flex h-auto items-center gap-2 bg-green-400/20 px-2 py-1 text-green-500 hover:text-primary-foreground"
           >
             <FaRegEye /> View
           </Button>

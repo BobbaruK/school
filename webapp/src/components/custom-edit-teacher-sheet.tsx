@@ -24,7 +24,7 @@ export const CustomEditTeacherSheet = ({ id }: Props) => {
         <Button
           variant={"default"}
           size={"sm"}
-          className="flex h-auto items-center gap-2 px-2 py-1"
+          className="flex h-auto items-center gap-2 bg-primary/10 px-2 py-1 text-primary hover:text-primary-foreground"
         >
           <RiEdit2Line /> Edit
         </Button>

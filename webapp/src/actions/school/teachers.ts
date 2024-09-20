@@ -3,13 +3,13 @@
 import { currentUser } from "@/lib/auth";
 import { getUserById } from "@/lib/data";
 import db from "@/lib/db";
-import { AddTeacherSchema } from "@/lib/schemas";
+import { TeacherSchema } from "@/lib/schemas";
 import { z } from "zod";
 
-export const addTeacher = async (values: z.infer<typeof AddTeacherSchema>) => {
+export const addTeacher = async (values: z.infer<typeof TeacherSchema>) => {
   const user = await currentUser();
 
-  const validatedFields = AddTeacherSchema.safeParse(values);
+  const validatedFields = TeacherSchema.safeParse(values);
 
   if (!validatedFields.success) return { error: "Invalid fields!" };
 
@@ -55,12 +55,12 @@ export const addTeacher = async (values: z.infer<typeof AddTeacherSchema>) => {
 };
 
 export const editTeacher = async (
-  values: z.infer<typeof AddTeacherSchema>,
+  values: z.infer<typeof TeacherSchema>,
   id: string,
 ) => {
   const user = await currentUser();
 
-  const validatedFields = AddTeacherSchema.safeParse(values);
+  const validatedFields = TeacherSchema.safeParse(values);
 
   if (!validatedFields.success) return { error: "Invalid fields!" };
 
