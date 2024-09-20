@@ -11,7 +11,11 @@ export const getTeacher = async (id: string) => {
 };
 
 export const getTeachers = async () => {
-  const teacher = await db.teacher.findMany();
+  const teacher = await db.teacher.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
 
   return teacher;
 };

@@ -63,6 +63,7 @@ export const EditTeacher = ({ teacherId, closeSheet }: Props) => {
       lastName: data?.lastName || undefined,
       email: data?.email || undefined,
       avatar: data?.avatar || undefined,
+      dateOfBirth: data?.dateOfBirth || undefined,
       subject: data?.subject || undefined,
     },
   });
@@ -74,12 +75,12 @@ export const EditTeacher = ({ teacherId, closeSheet }: Props) => {
 
         setData(teacher);
 
-        form.setValue("firstName", teacher?.firstName!);
-        form.setValue("lastName", teacher?.lastName!);
-        form.setValue("email", teacher?.email!);
-        form.setValue("avatar", teacher?.avatar!);
-        form.setValue("subject", teacher?.subject!);
-        form.setValue("dateOfBirth", teacher?.dateOfBirth!);
+        form.setValue("firstName", teacher?.firstName || "");
+        form.setValue("lastName", teacher?.lastName || "");
+        form.setValue("email", teacher?.email || "");
+        form.setValue("avatar", teacher?.avatar || "");
+        form.setValue("subject", teacher?.subject || "English");
+        form.setValue("dateOfBirth", teacher?.dateOfBirth || undefined);
       } catch {
         setError("Something went wrong!");
       }

@@ -27,10 +27,6 @@ export const TeacherSchema = z.object({
     ])
     .optional()
     .transform((e) => (e === "" ? undefined : e)),
-
-  // z.optional(
-  //   z.string().startsWith("https://", { message: "Must provide secure URL" }),
-  // ),
   dateOfBirth: z
     .date({
       // required_error: "Please select a date and time",
