@@ -1,5 +1,6 @@
+import { EditTeacher } from "@/app/(admin)/teachers/editTeacher";
 import { cn } from "@/lib/utils";
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 import { RiEdit2Line } from "react-icons/ri";
 import { Button } from "./ui/button";
 import {
@@ -9,7 +10,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
-import { EditTeacher } from "@/app/(admin)/teachers/editTeacher";
 
 interface Props {
   id: string;
@@ -24,7 +24,7 @@ export const CustomEditTeacherSheet = ({ id }: Props) => {
         <Button
           variant={"default"}
           size={"sm"}
-          className="flex h-auto items-center gap-2 bg-primary/10 px-2 py-1 text-primary hover:text-primary-foreground"
+          className="flex h-auto items-center gap-2 bg-blue-300/30 px-2 py-1 text-blue-500 hover:text-primary-foreground"
         >
           <RiEdit2Line /> Edit
         </Button>

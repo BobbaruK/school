@@ -21,8 +21,8 @@ import { TbTableColumn } from "react-icons/tb";
 export const Navbar = () => {
   const pathname = usePathname();
 
-  const isActive = (path: string) => {
-    if (pathname.startsWith(path)) return true;
+  const isActive = (path: string | null) => {
+    if (path && pathname.startsWith(path)) return true;
     return false;
   };
 
@@ -44,7 +44,7 @@ export const Navbar = () => {
           asChild
           variant={isActive("/teachers") ? "default" : "link"}
           className={cn(
-            `flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500 ${isActive("/teachers") ? "bg-primary/10 text-primary hover:text-primary-foreground" : "hover:bg-primary hover:text-primary-foreground"}`,
+            `flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500 ${isActive("/teachers") ? "bg-primary/30 text-primary hover:text-primary-foreground" : "hover:bg-primary hover:text-primary-foreground"}`,
           )}
         >
           <Link href={"/teachers"} className={``}>
@@ -53,89 +53,89 @@ export const Navbar = () => {
         </Button>
         <Button
           asChild
-          variant={isActive("/settings") ? "default" : "link"}
+          variant={isActive(null) ? "default" : "link"}
           className={cn(
-            `flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500 ${isActive("/settings") ? "bg-primary/20" : "hover:bg-primary hover:text-primary-foreground"}`,
+            `flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500`,
           )}
         >
-          <Link href={"/settings"}>
+          <Link href={"#"}>
             <PiStudentFill size={25} /> Students
           </Link>
         </Button>
         <Button
           asChild
-          variant={isActive("/settings") ? "default" : "link"}
+          variant={isActive(null) ? "default" : "link"}
           className={cn(
             "flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500",
           )}
         >
-          <Link href={"/settings"}>
+          <Link href={"#"}>
             <SiGoogleclassroom size={25} /> Classroom
           </Link>
         </Button>
         <Button
           asChild
-          variant={isActive("/settings") ? "default" : "link"}
+          variant={isActive(null) ? "default" : "link"}
           className={cn(
             "flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500",
           )}
         >
-          <Link href={"/settings"}>
+          <Link href={"#"}>
             <IoCalendarSharp size={25} /> Calendar
           </Link>
         </Button>
         <Button
           asChild
-          variant={isActive("/settings") ? "default" : "link"}
+          variant={isActive(null) ? "default" : "link"}
           className={cn(
             "flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500",
           )}
         >
-          <Link href={"/settings"}>
+          <Link href={"#"}>
             <HiNewspaper size={25} /> Grades
           </Link>
         </Button>
         <Button
           asChild
-          variant={isActive("/settings") ? "default" : "link"}
+          variant={isActive(null) ? "default" : "link"}
           className={cn(
             "flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500",
           )}
         >
-          <Link href={"/settings"}>
+          <Link href={"#"}>
             <BsChatSquareTextFill size={25} /> Chats
           </Link>
         </Button>
         <Button
           asChild
-          variant={isActive("/settings") ? "default" : "link"}
+          variant={isActive(null) ? "default" : "link"}
           className={cn(
             "flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500",
           )}
         >
-          <Link href={"/settings"}>
+          <Link href={"#"}>
             <PiCoinsFill size={25} /> Rewards
           </Link>
         </Button>
         <Button
           asChild
-          variant={isActive("/settings") ? "default" : "link"}
+          variant={isActive(null) ? "default" : "link"}
           className={cn(
             "flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500",
           )}
         >
-          <Link href={"/settings"}>
+          <Link href={"#"}>
             <TbTableColumn size={25} /> Curriculum setup
           </Link>
         </Button>
         <Button
           asChild
-          variant={isActive("/settings") ? "default" : "link"}
+          variant={isActive(null) ? "default" : "link"}
           className={cn(
             "flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500",
           )}
         >
-          <Link href={"/settings"}>
+          <Link href={"#"}>
             <RiPsychotherapyFill size={25} /> Psychological test
           </Link>
         </Button>
@@ -143,7 +143,7 @@ export const Navbar = () => {
           asChild
           variant={isActive("/settings") ? "default" : "link"}
           className={cn(
-            "flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500",
+            `flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500 ${isActive("/settings") ? "bg-primary/30 text-primary hover:text-primary-foreground" : "hover:bg-primary hover:text-primary-foreground"}`,
           )}
         >
           <Link href={"/settings"}>

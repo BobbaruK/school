@@ -111,5 +111,5 @@ model Teacher {
   numberOfClasses Int
   reviewScore     Float
 
-  @@index([id, email])
+  @@index([id, email, reviewScore])
 }
