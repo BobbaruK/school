@@ -116,16 +116,7 @@ export const EditTeacher = ({ teacherId, closeSheet }: Props) => {
     closeSheet();
     deleteTeacher(teacherId).then((leData) => {
       if (leData.error) {
-        // toast.error(
-        //   <div className="">
-        //     Could not delete teacher
-        //     <code>
-        //       {data?.firstName} {data?.lastName}
-        //     </code>
-        //     .
-        //   </div>,
-        // );
-        toast.error('dksalpdsk;')
+        toast.error("dksalpdsk;");
       }
       if (leData.success) {
         toast.success(
