@@ -1,17 +1,38 @@
-### Building and running your application
+# Instructions
 
-When you're ready, start your application by running:
-`docker compose up --build`.
+- add *.env* in the root of the project
+  - see *.env.sample* or ask me for an env
+  - if you want to run in development mode add *.env* in the root of the FE app */webapp*
+- in the root of the project run `docker compose -f docker-compose.prod.yml up`
+- for development mode run `docker compose -f docker-compose.dev.yml up --watch`
+- after the app starts w/ the db, in the root of the FE app */webapp* run `npx prisma db push`
+- restore the db data from sql file or login with google or github to create a new user and create your own data. If you do this, first you need to change your role to ADMIN in the settings page.
+- If you try to login with credentials, first register with the same email that you used for for [Resend](https://resend.com/)
 
-### Deploying your application to the cloud
+## Backup and restore postgres databeses in docker
 
-First, build your image, e.g.: `docker build -t myapp .`.
-If your cloud uses a different CPU architecture than your development
-machine (e.g., you are on a Mac M1 and your cloud provider is amd64),
-you'll want to build the image for that platform, e.g.:
-`docker build --platform=linux/amd64 -t myapp .`.
+```sh
+docker exec -t your-db-container pg_dumpall -c -U db-user > ./db-export/dump_`date +%Y-%m-%d"_"%H_%M_%S`.sql
+```
 
-Then, push it to your registry, e.g. `docker push myregistry.com/myapp`.
+### gzip
 
-Consult Docker's [getting started](https://docs.docker.com/go/get-started-sharing/)
-docs for more detail on building and pushing.
+```sh
+docker exec -t your-db-container pg_dumpall -c -U db-user | gzip > ./db-export/dump_`date +%Y-%m-%d"_"%H_%M_%S`.sql.gz
+```
+
+### brotli or bzip2
+
+```sh
+docker exec -t your-db-container pg_dumpall -c -U db-user | brotli --best > ./db-export/dump_`date +%Y-%m-%d"_"%H_%M_%S`.sql.br
+```
+
+```sh
+docker exec -t your-db-container pg_dumpall -c -U db-user | bzip2 --best > ./db-export/dump_`date +%Y-%m-%d"_"%H_%M_%S`.sql.bz2
+```
+
+### Restore
+
+```sh
+cat ./db-export/your_dump.sql | docker exec -i your-db-container psql -U db-user
+```
