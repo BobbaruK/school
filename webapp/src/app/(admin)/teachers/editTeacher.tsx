@@ -44,8 +44,8 @@ import { useEffect, useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 
 import { DeleteDialog } from "@/components/delete-dialog";
-import { z } from "zod";
 import { toast } from "sonner";
+import { z } from "zod";
 
 interface Props {
   teacherId: string;
@@ -90,7 +90,7 @@ export const EditTeacher = ({ teacherId, closeSheet }: Props) => {
 
     getTheTeacher();
     return () => {};
-  }, [teacherId, setData]);
+  }, [teacherId, setData, form]);
 
   const onSubmit = (values: z.infer<typeof TeacherSchema>) => {
     setSuccess(undefined);

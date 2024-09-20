@@ -14,9 +14,9 @@ import {
   PiCoinsFill,
   PiStudentFill,
 } from "react-icons/pi";
+import { RiPsychotherapyFill } from "react-icons/ri";
 import { SiGoogleclassroom } from "react-icons/si";
 import { TbTableColumn } from "react-icons/tb";
-import { MdOutlinePsychology } from "react-icons/md";
 
 export const Navbar = () => {
   const pathname = usePathname();
@@ -136,7 +136,7 @@ export const Navbar = () => {
           )}
         >
           <Link href={"/settings"}>
-            <MdOutlinePsychology size={25} /> Psychological test
+            <RiPsychotherapyFill size={25} /> Psychological test
           </Link>
         </Button>
         <Button

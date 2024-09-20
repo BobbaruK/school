@@ -74,9 +74,11 @@ const config = {
       },
       gridTemplateColumns: {
         "admin-layout": "280px 1fr",
+        "dashboard-layout": "repeat(3, 1fr) 340px",
       },
       gridTemplateRows: {
         siteGrid: "auto 1fr auto",
+        "dashboard-layout": "90px auto 1fr",
       },
     },
   },
