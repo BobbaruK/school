@@ -1,11 +1,7 @@
 "use client";
 
 import { revalidate } from "@/actions/reavalidate";
-import {
-  deleteTeacher,
-  editTeacher,
-  getTeacher,
-} from "@/actions/school/teachers";
+import { deleteTeacher, editTeacher } from "@/actions/school";
 import { FormError } from "@/components/auth/form-error";
 import { FormSuccess } from "@/components/auth/form-success";
 import { Button } from "@/components/ui/button";
@@ -44,6 +40,7 @@ import { useEffect, useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 
 import { DeleteDialog } from "@/components/delete-dialog";
+import { getTeacher } from "@/lib/data/school";
 import { toast } from "sonner";
 import { z } from "zod";
 

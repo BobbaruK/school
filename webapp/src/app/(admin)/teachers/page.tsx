@@ -1,14 +1,10 @@
 import { CustomAddTeacherSheet } from "@/components/custom-add-teacher-sheet";
 import { DataTable } from "@/components/data-table";
-import db from "@/lib/db";
+import { getTeachers } from "@/lib/data/school";
 import { columns } from "./columns";
 
 const AdminTeacersPage = async () => {
-  const teachers = await db.teacher.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
+  const teachers = await getTeachers();
 
   return (
     <div className="flex flex-col gap-6 px-8 pb-9 pt-8">

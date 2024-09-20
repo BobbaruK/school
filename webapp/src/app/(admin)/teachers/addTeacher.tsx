@@ -1,7 +1,7 @@
 "use client";
 
 import { revalidate } from "@/actions/reavalidate";
-import { addTeacher } from "@/actions/school/teachers";
+import { addTeacher } from "@/actions/school";
 import { FormError } from "@/components/auth/form-error";
 import { FormSuccess } from "@/components/auth/form-success";
 import { Button } from "@/components/ui/button";

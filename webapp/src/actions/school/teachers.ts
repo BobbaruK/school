@@ -133,11 +133,3 @@ export const deleteTeacher = async (id: string) => {
     return { error: "Could not delete teacher!" };
   }
 };
-
-export const getTeacher = async (id: string) => {
-  const teacher = await db.teacher.findUnique({
-    where: { id },
-  });
-
-  return teacher;
-};
