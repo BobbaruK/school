@@ -29,7 +29,7 @@ export function TopPerformerChart({ topPerformanceChartData }: Props) {
   return (
     <ChartContainer config={chartConfig} className="h-[400px] w-full">
       <BarChart accessibilityLayer data={topPerformanceChartData}>
-        <CartesianGrid vertical={false} />
+        <CartesianGrid vertical={false} strokeDasharray="7 7" />
         <XAxis
           dataKey="class"
           tickLine={false}
@@ -43,10 +43,6 @@ export function TopPerformerChart({ topPerformanceChartData }: Props) {
           ticks={[0, 25, 50, 75, 100]}
           axisLine={false}
           tickLine={false}
-          fill="red"
-          stroke="red"
-          // mirror
-          tickMargin={0}
           width={25}
         />
         <ChartTooltip
@@ -58,7 +54,7 @@ export function TopPerformerChart({ topPerformanceChartData }: Props) {
           fill="var(--color-performance)"
           radius={4}
           barSize={18}
-          background={{ fill: "#eee" }}
+          background={{ fill: "hsl(var(--accent) / 0.7)" }}
         />
       </BarChart>
     </ChartContainer>

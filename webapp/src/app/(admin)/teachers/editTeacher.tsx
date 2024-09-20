@@ -70,16 +70,16 @@ export const EditTeacher = ({ teacherId, closeSheet }: Props) => {
   useEffect(() => {
     const getTheTeacher = async () => {
       try {
-        const res = await getTeacher(teacherId);
+        const teacher = await getTeacher(teacherId);
 
-        setData(res);
+        setData(teacher);
 
-        form.setValue("firstName", res?.firstName!);
-        form.setValue("lastName", res?.lastName!);
-        form.setValue("email", res?.email!);
-        form.setValue("avatar", res?.avatar!);
-        form.setValue("subject", res?.subject!);
-        form.setValue("dateOfBirth", res?.dateOfBirth!);
+        form.setValue("firstName", teacher?.firstName!);
+        form.setValue("lastName", teacher?.lastName!);
+        form.setValue("email", teacher?.email!);
+        form.setValue("avatar", teacher?.avatar!);
+        form.setValue("subject", teacher?.subject!);
+        form.setValue("dateOfBirth", teacher?.dateOfBirth!);
       } catch {
         setError("Something went wrong!");
       }

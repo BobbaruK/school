@@ -22,7 +22,7 @@ export const columns: ColumnDef<Teacher>[] = [
       return (
         <Button
           variant="ghost"
-          className="flex gap-2 shadow-none"
+          className="flex gap-2"
           onClick={() => column.toggleSorting()}
         >
           Name
@@ -144,8 +144,8 @@ export const columns: ColumnDef<Teacher>[] = [
     cell: ({ row }) => {
       return (
         <Badge
-          variant="secondary"
-          className="inline-flex min-w-[85px] items-center justify-between gap-2 px-2 py-1 text-[14px]"
+          variant="outline"
+          className="inline-flex min-w-[80px] items-center justify-between gap-1 px-2 py-1 text-[14px]"
         >
           <FaStar size={15} className="text-yellow-400" />{" "}
           {row.original.reviewScore} / 5

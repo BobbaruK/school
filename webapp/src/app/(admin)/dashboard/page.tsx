@@ -152,8 +152,8 @@ const AdminDashboardPage = async () => {
                     </div>
 
                     <Badge
-                      variant="secondary"
-                      className="ms-auto inline-flex min-w-[75px] items-center justify-between gap-1 px-1 py-1 text-[14px]"
+                      variant="outline"
+                      className="ms-auto inline-flex min-w-[80px] items-center justify-between gap-1 px-2 py-1 text-[14px]"
                     >
                       <FaStar size={15} className="text-yellow-400" />{" "}
                       {teacher.reviewScore} / 5
