@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ReactNode } from "react";
 import { BsChatSquareTextFill } from "react-icons/bs";
 import { FaCog } from "react-icons/fa";
 import { HiNewspaper } from "react-icons/hi2";
@@ -26,130 +27,97 @@ export const Navbar = () => {
     return false;
   };
 
+  const menuButtons: {
+    id: number;
+    path: string;
+    label: string;
+    icon: ReactNode;
+  }[] = [
+    {
+      id: 1,
+      path: "/dashboard",
+      label: "Dashboard",
+      icon: <MdSpaceDashboard size={25} />,
+    },
+    {
+      id: 2,
+      path: "/teachers",
+      label: "Teachers",
+      icon: <PiChalkboardTeacherFill size={25} />,
+    },
+    {
+      id: 3,
+      path: "",
+      label: "Students",
+      icon: <PiStudentFill size={25} />,
+    },
+    {
+      id: 4,
+      path: "",
+      label: "Classroom",
+      icon: <SiGoogleclassroom size={25} />,
+    },
+    {
+      id: 5,
+      path: "",
+      label: "Calendar",
+      icon: <IoCalendarSharp size={25} />,
+    },
+    {
+      id: 6,
+      path: "",
+      label: "Grades",
+      icon: <HiNewspaper size={25} />,
+    },
+    {
+      id: 7,
+      path: "",
+      label: "Chats",
+      icon: <BsChatSquareTextFill size={25} />,
+    },
+    {
+      id: 8,
+      path: "",
+      label: "Rewards",
+      icon: <PiCoinsFill size={25} />,
+    },
+    {
+      id: 9,
+      path: "",
+      label: "Curriculum setup",
+      icon: <TbTableColumn size={25} />,
+    },
+    {
+      id: 10,
+      path: "",
+      label: "Psychological test",
+      icon: <RiPsychotherapyFill size={25} />,
+    },
+    {
+      id: 11,
+      path: "/settings",
+      label: "Settings",
+      icon: <FaCog size={25} />,
+    },
+  ];
+
   return (
     <nav className="flex w-full items-start justify-between rounded-none">
       <div className="flex w-full flex-col gap-y-2">
-        <Button
-          asChild
-          variant={isActive("/dashboard") ? "default" : "link"}
-          className={cn(
-            `flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500 ${isActive("/dashboard") ? "bg-primary/30 text-primary hover:text-primary-foreground" : "hover:bg-primary hover:text-primary-foreground"}`,
-          )}
-        >
-          <Link href={"/dashboard"}>
-            <MdSpaceDashboard size={25} /> Dashboard
-          </Link>
-        </Button>
-        <Button
-          asChild
-          variant={isActive("/teachers") ? "default" : "link"}
-          className={cn(
-            `flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500 ${isActive("/teachers") ? "bg-primary/30 text-primary hover:text-primary-foreground" : "hover:bg-primary hover:text-primary-foreground"}`,
-          )}
-        >
-          <Link href={"/teachers"} className={``}>
-            <PiChalkboardTeacherFill size={25} /> Teachers
-          </Link>
-        </Button>
-        <Button
-          asChild
-          variant={isActive(null) ? "default" : "link"}
-          className={cn(
-            `flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500`,
-          )}
-        >
-          <Link href={"#"}>
-            <PiStudentFill size={25} /> Students
-          </Link>
-        </Button>
-        <Button
-          asChild
-          variant={isActive(null) ? "default" : "link"}
-          className={cn(
-            "flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500",
-          )}
-        >
-          <Link href={"#"}>
-            <SiGoogleclassroom size={25} /> Classroom
-          </Link>
-        </Button>
-        <Button
-          asChild
-          variant={isActive(null) ? "default" : "link"}
-          className={cn(
-            "flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500",
-          )}
-        >
-          <Link href={"#"}>
-            <IoCalendarSharp size={25} /> Calendar
-          </Link>
-        </Button>
-        <Button
-          asChild
-          variant={isActive(null) ? "default" : "link"}
-          className={cn(
-            "flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500",
-          )}
-        >
-          <Link href={"#"}>
-            <HiNewspaper size={25} /> Grades
-          </Link>
-        </Button>
-        <Button
-          asChild
-          variant={isActive(null) ? "default" : "link"}
-          className={cn(
-            "flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500",
-          )}
-        >
-          <Link href={"#"}>
-            <BsChatSquareTextFill size={25} /> Chats
-          </Link>
-        </Button>
-        <Button
-          asChild
-          variant={isActive(null) ? "default" : "link"}
-          className={cn(
-            "flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500",
-          )}
-        >
-          <Link href={"#"}>
-            <PiCoinsFill size={25} /> Rewards
-          </Link>
-        </Button>
-        <Button
-          asChild
-          variant={isActive(null) ? "default" : "link"}
-          className={cn(
-            "flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500",
-          )}
-        >
-          <Link href={"#"}>
-            <TbTableColumn size={25} /> Curriculum setup
-          </Link>
-        </Button>
-        <Button
-          asChild
-          variant={isActive(null) ? "default" : "link"}
-          className={cn(
-            "flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500",
-          )}
-        >
-          <Link href={"#"}>
-            <RiPsychotherapyFill size={25} /> Psychological test
-          </Link>
-        </Button>
-        <Button
-          asChild
-          variant={isActive("/settings") ? "default" : "link"}
-          className={cn(
-            `flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500 ${isActive("/settings") ? "bg-primary/30 text-primary hover:text-primary-foreground" : "hover:bg-primary hover:text-primary-foreground"}`,
-          )}
-        >
-          <Link href={"/settings"}>
-            <FaCog size={25} /> Settings
-          </Link>
-        </Button>
+        {menuButtons.map((button) => (
+          <Button
+            key={button.id}
+            asChild
+            variant={isActive(button.path) ? "default" : "link"}
+            className={cn(
+              `flex h-auto w-full max-w-none items-center justify-start gap-2 text-lg text-stone-500 ${button.path ? (isActive(button.path) ? "bg-primary/30 text-primary hover:text-primary-foreground" : "hover:bg-primary hover:text-primary-foreground") : ""}`,
+            )}
+          >
+            <Link href={button.path}>
+              {button.icon} {button.label}
+            </Link>
+          </Button>
+        ))}
       </div>
     </nav>
   );
