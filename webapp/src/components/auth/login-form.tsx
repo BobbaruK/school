@@ -21,6 +21,7 @@ import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { PiLockKeyFill } from "react-icons/pi";
 import z from "zod";
+import { BackButton } from "./back-button";
 
 interface Props {
   searchParamError?: string;
@@ -195,6 +196,7 @@ export const LoginForm = ({ searchParamError, callbackUrl }: Props) => {
             </form>
           </Form>
           <Social />
+          <BackButton label={"Dont have an account?"} href={"/auth/register"} />
         </div>
       </div>
     </>

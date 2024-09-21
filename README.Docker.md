@@ -1,13 +1,25 @@
 # Instructions
 
-- add *.env* in the root of the project
-  - see *.env.sample* or ask me for an env
-  - if you want to run in development mode add *.env* in the root of the FE app */webapp*
+You will need a [Resend](https://resend.com/) account.
+
+- add _.env_ in the root of the project
+  - see _.env.sample_ or ask me for an env
+  - if you want to run in development mode add _.env_ in the root of the FE app _/webapp_
 - in the root of the project run `docker compose -f docker-compose.prod.yml up`
 - for development mode run `docker compose -f docker-compose.dev.yml up --watch`
-- after the app starts w/ the db, in the root of the FE app */webapp* run `npx prisma db push`
-- restore the db data from sql file or login with google or github to create a new user and create your own data. If you do this, first you need to change your role to ADMIN in the settings page.
-- If you try to login with credentials, first register with the same email that you used for for [Resend](https://resend.com/)
+- after the app and the db starts:
+
+  - if you want to add your own data:
+    - in the root of the FE app _/webapp_ run `npx prisma db push`.
+    - Then login with google or github to create a new user. It will have a role of _USER_ which you can change it from the settings
+
+  OR
+
+  - restore the db data from sql file and login with OAuth or register to login with credentials\*.
+
+\* If you try to login with credentials, register with the same email that you used for [Resend](https://resend.com/)\*\*
+
+\*\* With a free account at [Resend](https://resend.com/) you have a monthly limit of 3000 emails and daily of 100, which is great. But you can only send emails to the email linked to the Resend account except if add a domain which I do not own. This is important for things like: verifying email, reset password, 2FA and change your email address.
 
 ## Backup and restore postgres databeses in docker
 
@@ -36,3 +48,7 @@ docker exec -t your-db-container pg_dumpall -c -U db-user | bzip2 --best > ./db-
 ```sh
 cat ./db-export/your_dump.sql | docker exec -i your-db-container psql -U db-user
 ```
+
+- **db-user**: scsseco
+- **your-db-container**: check docker desktop or `docker ps -a`
+- **your_dump**: dump_2024-09-21_00_30_33
