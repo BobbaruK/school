@@ -4,6 +4,7 @@ import { revalidate } from "@/actions/reavalidate";
 import { settings } from "@/actions/settings";
 import { FormError } from "@/components/auth/form-error";
 import { FormSuccess } from "@/components/auth/form-success";
+import { PageTtle } from "@/components/page-title";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -86,7 +87,7 @@ const SettingsPage = () => {
 
   return (
     <div className="flex flex-col gap-6 px-8 pb-9 pt-8">
-      <h1 className="text-3xl font-medium">Settings</h1>
+      <PageTtle label="Settings" />
       <div className="space-y-4">
         <h2 className="text-2xl font-medium">Site</h2>
 

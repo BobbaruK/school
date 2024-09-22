@@ -2,6 +2,7 @@ import { DashboardTotalCard } from "@/components/cards/dashboard-total-card";
 import { AttendanceChart } from "@/components/charts/attendance";
 import { TopPerformerChart } from "@/components/charts/top-performer";
 import { CustomAvatar } from "@/components/custom-avatar";
+import { PageTtle } from "@/components/page-title";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -99,10 +100,11 @@ const AdminDashboardPage = async () => {
   ];
 
   return (
-    <div className="flex flex-col gap-6 px-8 pb-9 pt-8">
-      <h1 className="text-3xl font-medium">Dashboard</h1>
+    <div className="flex flex-col gap-6 px-4 pb-9 pt-8 md:px-8">
+      <PageTtle label="Dashboard" />
       {/* dashboar grid */}
-      <div className="grid-cols-dashboard-layout grid-rows-dashboard-layout grid gap-8">
+      {/* <div className="grid-cols-dashboard-layout grid-rows-dashboard-layout grid gap-8"> */}
+      <div className="custom-desktop:grid-cols-dashboard-layout-desktop row-auto grid grid-cols-1 gap-8 md:grid-cols-3">
         <DashboardTotalCard
           icon={<PiStudentFill size={25} />}
           title={"Total Students"}
@@ -118,7 +120,7 @@ const AdminDashboardPage = async () => {
           title={"Total Parents"}
           total={1450}
         />
-        <Card className="row-span-2">
+        <Card className="custom-desktop:row-span-2 custom-desktop:col-span-1 md:col-span-3 lg:col-span-1">
           <CardContent className="space-y-6 p-4">
             <div className="flex items-center justify-between">
               <h2 className="text-[18px] font-semibold">Top Rated Teachers</h2>
@@ -164,7 +166,7 @@ const AdminDashboardPage = async () => {
             </div>
           </CardContent>
         </Card>
-        <Card className="col-span-3">
+        <Card className="custom-desktop:col-span-3 col-span-1 md:col-span-3 lg:col-span-2">
           <CardContent className="space-y-6 p-4">
             <div>
               <h2 className="text-[18px] font-semibold">Attendance</h2>
@@ -172,7 +174,7 @@ const AdminDashboardPage = async () => {
             <AttendanceChart attendanceChartData={attendanceData} />
           </CardContent>
         </Card>
-        <div className="col-span-4 flex items-stretch justify-stretch gap-8">
+        <div className="custom-desktop:col-span-4 flex flex-col items-stretch justify-stretch gap-8 md:col-span-3 lg:flex-row">
           <Card className="w-full grow">
             <CardContent className="space-y-4 p-4">
               <h2 className="text-[18px] font-semibold">Top 5 Students</h2>
@@ -207,7 +209,7 @@ const AdminDashboardPage = async () => {
               </div>
             </CardContent>
           </Card>
-          <Card className="w-full max-w-[532px] grow">
+          <Card className="w-full grow lg:max-w-[532px]">
             <CardContent className="space-y-6 p-4">
               <div>
                 <h2 className="text-[18px] font-semibold">

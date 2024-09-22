@@ -1,5 +1,13 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
 import {
   Table,
   TableBody,
@@ -21,17 +29,9 @@ import {
   useReactTable,
   VisibilityState,
 } from "@tanstack/react-table";
-import { DataTablePagination, PAGINATION_DEFAULT } from "./pagination";
 import { ReactNode, useRef, useState } from "react";
-import { Input } from "@/components/ui/input";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
+import { DataTablePagination, PAGINATION_DEFAULT } from "./pagination";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -87,7 +87,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="w-full rounded-md">
-      <div className="flex items-center gap-4 py-4">
+      <div className="flex flex-wrap items-center gap-4 py-4">
         <div className="relative">
           <Input
             placeholder="Search in all columns..."
@@ -151,7 +151,7 @@ export function DataTable<TData, TValue>({
       </div>
       <div className="flex flex-col overflow-hidden rounded-md border">
         <div className="border-b">
-          <Table>
+          <Table className={""}>
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (
                 <TableRow key={headerGroup.id}>

@@ -14,10 +14,14 @@ const config = {
       center: true,
       padding: "1rem",
       screens: {
-        "2xl": "1400px",
+        "custom-desktop": "1440px",
       },
     },
     extend: {
+      screens: {
+        "custom-desktop": "1440px",
+        lg: "1120px",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -73,12 +77,15 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       gridTemplateColumns: {
-        "admin-layout": "280px 1fr",
-        "dashboard-layout": "repeat(3, 1fr) 340px",
+        "admin-layout-desktop": "280px 1fr",
+        "admin-layout-tablet": "1fr 1fr 1fr",
+        "dashboard-layout-tablet": "repeat(3, 1fr)",
+        "dashboard-layout-desktop": "repeat(3, 1fr) 340px",
       },
       gridTemplateRows: {
         siteGrid: "auto 1fr auto",
-        "dashboard-layout": "90px auto 1fr",
+        "dashboard-layout-tablet": "auto",
+        "dashboard-layout-desktop": "90px auto 1fr",
       },
     },
   },

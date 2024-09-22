@@ -32,7 +32,10 @@ export function AttendanceChart({ attendanceChartData }: Props) {
   } satisfies ChartConfig;
 
   return (
-    <ChartContainer config={chartConfig} className="h-[280px] w-full">
+    <ChartContainer
+      config={chartConfig}
+      className="h-[280px] w-full lg:h-[400px] custom-desktop:h-[280px]"
+    >
       <BarChart accessibilityLayer data={attendanceChartData}>
         <CartesianGrid vertical={false} strokeDasharray="7 7" />
         <XAxis

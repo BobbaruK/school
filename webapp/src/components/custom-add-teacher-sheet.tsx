@@ -25,7 +25,7 @@ export const CustomAddTeacherSheet = () => {
         </Button>
       </SheetTrigger>
       <SheetContent
-        className={cn("flex min-w-[483px] max-w-none flex-col p-8")}
+        className={cn("flex lg:min-w-[483px] max-w-none flex-col p-8")}
       >
         <SheetHeader className="mb-12">
           <SheetTitle className="text-[20px] font-medium">
