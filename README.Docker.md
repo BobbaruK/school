@@ -1,6 +1,6 @@
 # Instructions
 
-You will need a [Resend](https://resend.com/) account.
+You will need a [Resend](https://resend.com/) account if you login with credentials.
 
 - add _.env_ in the root of the project
   - see _.env.sample_ or ask me for an env
