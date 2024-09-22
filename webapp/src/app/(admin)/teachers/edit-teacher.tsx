@@ -5,7 +5,6 @@ import { deleteTeacher, editTeacher } from "@/actions/school";
 import { FormError } from "@/components/auth/form-error";
 import { FormSuccess } from "@/components/auth/form-success";
 import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
 
 import {
   Form,
@@ -43,6 +42,7 @@ import { DeleteDialog } from "@/components/delete-dialog";
 import { getTeacher } from "@/lib/data/school";
 import { toast } from "sonner";
 import { z } from "zod";
+import { CustomTeacherCalendar } from "./custom-teacher-calendar";
 
 interface Props {
   teacherId: string;
@@ -234,14 +234,9 @@ export const EditTeacher = ({ teacherId, closeSheet }: Props) => {
                       </FormControl>
                     </PopoverTrigger>
                     <PopoverContent className="w-auto p-0" align="start">
-                      <Calendar
-                        mode="single"
-                        selected={field.value}
-                        onSelect={field.onChange}
-                        disabled={(date) =>
-                          date > new Date() || date < new Date("1900-01-01")
-                        }
-                        initialFocus
+                      <CustomTeacherCalendar
+                        selectedDate={field.value}
+                        onChange={(e) => form.setValue("dateOfBirth", e)}
                       />
                     </PopoverContent>
                   </Popover>

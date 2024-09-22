@@ -1,7 +1,4 @@
-import { EditTeacher } from "@/app/(admin)/teachers/editTeacher";
-import { cn } from "@/lib/utils";
-import { useState } from "react";
-import { RiEdit2Line } from "react-icons/ri";
+import { EditTeacher } from "@/app/(admin)/teachers/edit-teacher";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -10,6 +7,9 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { cn } from "@/lib/utils";
+import { useState } from "react";
+import { RiEdit2Line } from "react-icons/ri";
 
 interface Props {
   id: string;

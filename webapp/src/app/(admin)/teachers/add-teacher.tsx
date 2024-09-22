@@ -38,6 +38,7 @@ import { CalendarIcon } from "lucide-react";
 import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { CustomTeacherCalendar } from "./custom-teacher-calendar";
 
 interface Props {
   closeSheet: () => void;
@@ -181,14 +182,9 @@ export const AddTeacher = ({ closeSheet }: Props) => {
                     </FormControl>
                   </PopoverTrigger>
                   <PopoverContent className="w-auto p-0" align="start">
-                    <Calendar
-                      mode="single"
-                      selected={field.value}
-                      onSelect={field.onChange}
-                      disabled={(date) =>
-                        date > new Date() || date < new Date("1900-01-01")
-                      }
-                      initialFocus
+                    <CustomTeacherCalendar
+                      selectedDate={field.value}
+                      onChange={(e) => form.setValue("dateOfBirth", e)}
                     />
                   </PopoverContent>
                 </Popover>

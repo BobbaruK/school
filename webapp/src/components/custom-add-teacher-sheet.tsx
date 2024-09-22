@@ -1,6 +1,6 @@
 "use client";
 
-import { AddTeacher } from "@/app/(admin)/teachers/addTeacher";
+import { AddTeacher } from "@/app/(admin)/teachers/add-teacher";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
