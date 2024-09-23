@@ -35,7 +35,10 @@ export const settings = async (values: z.infer<typeof SettingsSchema>) => {
     if (existingUser && existingUser.id !== user.id)
       return { error: "Email already in use!" };
 
-    const verificationToken = await generateVerificationToken(values.email);
+    const verificationToken = await generateVerificationToken(
+      values.email,
+      user?.email,
+    );
 
     await sendVerificationEmail(
       verificationToken.email,
@@ -44,6 +47,7 @@ export const settings = async (values: z.infer<typeof SettingsSchema>) => {
 
     return {
       success: "Verification email sent!",
+      logout: true,
     };
   }
 

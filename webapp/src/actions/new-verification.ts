@@ -37,7 +37,9 @@ export const newVerification = async (token: string) => {
     };
 
   // 4
-  const existingUser = await getUserByEmail(existingToken.email);
+  const existingUser = await getUserByEmail(
+    existingToken.emailOld || existingToken.email,
+  );
 
   // 5
   if (!existingUser)

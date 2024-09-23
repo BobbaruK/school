@@ -1,5 +1,6 @@
 "use client";
 
+import { logout } from "@/actions";
 import { revalidate } from "@/actions/reavalidate";
 import { settings } from "@/actions/settings";
 import { FormError } from "@/components/auth/form-error";
@@ -78,6 +79,8 @@ const SettingsPage = () => {
             update();
             setSuccess(data.success);
           }
+
+          if (data.logout) setTimeout(logout, 700);
 
           revalidate();
         })
