@@ -16,6 +16,7 @@ import {
 } from "@/lib/tokens";
 import { AuthError } from "next-auth";
 import z from "zod";
+import bcrypt from "bcryptjs";
 
 /**
  * **{@linkcode login} server function**
@@ -86,6 +87,13 @@ export const login = async (
     // 6.3
     return { success: "Confirmation email sent!" };
   }
+
+  const passwordMatch = await bcrypt.compare(
+    values.password,
+    existingUser.password,
+  );
+
+  if (!passwordMatch) return { error: "Invalid credentials!" };
 
   // 7
   if (existingUser.isTwoFactorEnabled && existingUser.email) {
