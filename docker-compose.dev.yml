@@ -1,6 +1,6 @@
 services:
   webapp-dev:
-    container_name: webapp-dev
+    container_name: webapp-school-dev
     build:
       context: ./webapp
       dockerfile: /docker/dev.Dockerfile
@@ -24,13 +24,14 @@ services:
       GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
       RESEND_API_KEY: ${RESEND_API_KEY}
       NEXT_PUBLIC_APP_URL: ${NEXT_PUBLIC_APP_URL}
+      NEXTAUTH_URL: ${NEXT_PUBLIC_APP_URL}
 
     # Set environment variables based on the .env file
     # env_file:
     #   - .env
     restart: always
     ports:
-      - 3000:3000
+      - 3002:3000
     develop:
       watch:
         - action: sync
@@ -46,13 +47,13 @@ services:
 
   db:
     image: postgres:16-alpine
-    container_name: postgres
+    container_name: postgres-school
     restart: always
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       TZ: Europe/Bucharest
     ports:
-      - "5432:5432"
+      - "5434:5432"
     volumes:
       - ./db:/var/lib/postgresql/data
